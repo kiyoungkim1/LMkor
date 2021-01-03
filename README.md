@@ -60,7 +60,7 @@ model_albert = AlbertModel.from_pretrained("kykim/albert-kor-base")
 |                   | Hidden size      | layers     |max length  | batch size | learning rate | training steps |
 | ----------------- |----------------: | ---------: | ---------: | ---------: | ------------: | -------------: |
 | albert-kor-base   |              768 |         12 |        256 |       1024 |          5e-4 |          0.25M |
-| bert-kor-base     |              768 |         12 |        512 |        256 |          5e-5 |             1M |
+| bert-kor-base     |              768 |         12 |        512 |        256 |          1e-4 |             1M |
 | electra-kor-base  |              768 |         12 |        512 |        256 |          2e-4 |             1M |
 
 * Electra 모델은 discriminator입니다.
