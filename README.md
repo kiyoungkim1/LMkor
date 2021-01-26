@@ -32,6 +32,11 @@ model_albert = AlbertModel.from_pretrained("kykim/albert-kor-base")
 from transformers import FunnelTokenizerFast, FunnelModel
 tokenizer_funnel = FunnelTokenizerFast.from_pretrained("kykim/funnel-kor-base")
 model_funnel = FunnelModel.from_pretrained("kykim/funnel-kor-base")
+
+# gpt3-kor-small_based_on_gpt2
+from transformers import BertTokenizerFast, GPT2LMHeadModel
+tokenizer_gpt3 = BertTokenizerFast.from_pretrained("kykim/gpt3-kor-small_based_on_gpt2")
+model_gpt3 = GPT2LMHeadModel.from_pretrained("kykim/gpt3-kor-small_based_on_gpt2")
 ```
 
 ## Dataset
@@ -48,9 +53,9 @@ model_funnel = FunnelModel.from_pretrained("kykim/funnel-kor-base")
 * 데이터는 화장품(8GB), 식품(6GB), 전자제품(13GB), 반려동물(2GB) 등등의 카테고리로 분류되어 있으며 도메인 특화 언어모델 학습에 사용하였습니다.
 
 ## Vocab
-| Vocab Len | lower_case | strip_accent |
+| Vocab Len | lower_case    | strip_accent  |
 | --------: | ------------: | ------------: |
-|     42000 |         True |         False |
+|     42000 |         True  |         False |
 
 
 * 한글, 영어, 숫자와 일부 특수문자를 제외한 문자는 학습에 방해가된다고 판단하여 삭제하였습니다(예시: 한자, 이모지 등)
@@ -59,16 +64,18 @@ model_funnel = FunnelModel.from_pretrained("kykim/funnel-kor-base")
 
 ## Pretraining models
 
-|                   | Hidden size      | layers     |max length  | batch size | learning rate | training steps |
-| ----------------- |----------------: | ---------: | ---------: | ---------: | ------------: | -------------: |
-| albert-kor-base   |              768 |         12 |        256 |       1024 |          5e-4 |           0.9M |
-| bert-kor-base     |              768 |         12 |        512 |        256 |          1e-4 |           1.9M |
-| funnel-kor-base   |              768 |      6_6_6 |        512 |        128 |          8e-5 |           0.9M |
-| electra-kor-base  |              768 |         12 |        512 |        256 |          2e-4 |           1.9M |
+|                                     | Hidden size      | layers     |max length  | batch size | learning rate | training steps |
+| --------------------------------    |----------------: | ---------: | ---------: | ---------: | ------------: | -------------: |
+| albert-kor-base                     |              768 |         12 |        256 |       1024 |          5e-4 |           0.9M |
+| bert-kor-base                       |              768 |         12 |        512 |        256 |          1e-4 |           1.9M |
+| funnel-kor-base                     |              768 |      6_6_6 |        512 |        128 |          8e-5 |           0.9M |
+| electra-kor-base                    |              768 |         12 |        512 |        256 |          2e-4 |           1.9M |
+| gpt3-kor-small_based_on_gpt2        |              768 |         12 |       2048 |       4096 |          1e-2 |           2.7K |
 
 * Electra 모델은 discriminator입니다.
 * Bert 모델에는 whole-word-masking이 적용되었습니다.
 * Funnel-transformer 모델은 electra모델을 사용했고 generator와 discriminator가 모두 들어가 있습니다.
+* 원본 모델과 달리 tokenizer는 모든 모델에 대해 wordpiece로 통일하였습니다.
 
 ## Fine-tuning
 * Fine-tuning 코드와 KoBert, HanBERT, KoELECTRA-Base-v3 결과는 [KoELECTRA](https://github.com/monologg/KoELECTRA) 를 참고하였습니다. 이 외에는 직접 fine-tuning을 수행하였으며 batch size=32, learning rate=3e-5, epoch=5~15를 사용하였습니다.
@@ -108,7 +115,8 @@ model_funnel = FunnelModel.from_pretrained("kykim/funnel-kor-base")
 * [BERT](https://github.com/google-research/bert)
 * [ALBERT](https://github.com/google-research/albert)
 * [ELECTRA](https://github.com/google-research/electra)
-* [FUNNEL-TRANSFORMER](https://github.com/laiguokun/Funnel-Transformer)  
+* [FUNNEL-TRANSFORMER](https://github.com/laiguokun/Funnel-Transformer)
+* [GPT3](https://github.com/openai/gpt-3) and [GPT2](https://github.com/openai/gpt-2)
 * [Huggingface Transformers](https://github.com/huggingface/transformers)
 * [Huggingface Tokenizers](https://github.com/huggingface/tokenizers)
 * [모두의 말뭉치](https://corpus.korean.go.kr/)
