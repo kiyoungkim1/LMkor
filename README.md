@@ -5,6 +5,7 @@
 * 도메인 특화 언어모델 등의 모델에 관한 문의나, 상업적 사용에 대해서는 kky416@gmail.com로 문의 부탁드립니다.
 
 ## Recent update
+* 2021-01-26: [GPT3](https://github.com/openai/gpt-3) 모델 초기 버전 추가
 * 2021-01-22: [Funnel-transformer](https://github.com/laiguokun/Funnel-Transformer) 모델 추가
 
 ## Usage
@@ -64,18 +65,20 @@ model_gpt3 = GPT2LMHeadModel.from_pretrained("kykim/gpt3-kor-small_based_on_gpt2
 
 ## Pretraining models
 
-|                                     | Hidden size      | layers     |max length  | batch size | learning rate | training steps |
-| --------------------------------    |----------------: | ---------: | ---------: | ---------: | ------------: | -------------: |
-| albert-kor-base                     |              768 |         12 |        256 |       1024 |          5e-4 |           0.9M |
-| bert-kor-base                       |              768 |         12 |        512 |        256 |          1e-4 |           1.9M |
-| funnel-kor-base                     |              768 |      6_6_6 |        512 |        128 |          8e-5 |           0.9M |
-| electra-kor-base                    |              768 |         12 |        512 |        256 |          2e-4 |           1.9M |
-| gpt3-kor-small_based_on_gpt2        |              768 |         12 |       2048 |       4096 |          1e-2 |           2.7K |
+|                                     | Hidden size      | layers     |max length  | batch size | learning rate | training steps |                |
+| --------------------------------    |----------------: | ---------: | ---------: | ---------: | ------------: | -------------: |--------------: |
+| albert-kor-base                     |              768 |         12 |        256 |       1024 |          5e-4 |           0.9M |                |
+| bert-kor-base                       |              768 |         12 |        512 |        256 |          1e-4 |           1.9M |                |
+| funnel-kor-base                     |              768 |      6_6_6 |        512 |        128 |          8e-5 |           0.9M |                |
+| electra-kor-base                    |              768 |         12 |        512 |        256 |          2e-4 |           1.9M |                |
+| gpt3-kor-small_based_on_gpt2        |              768 |         12 |       2048 |       4096 |          1e-2 |           2.7K | will be update |
 
-* Electra 모델은 discriminator입니다.
-* Bert 모델에는 whole-word-masking이 적용되었습니다.
-* Funnel-transformer 모델은 electra모델을 사용했고 generator와 discriminator가 모두 들어가 있습니다.
 * 원본 모델과 달리 tokenizer는 모든 모델에 대해 wordpiece로 통일하였습니다.
+* ELECTRA 모델은 discriminator입니다.
+* BERT 모델에는 whole-word-masking이 적용되었습니다.
+* FUNNEL-TRANSFORMER 모델은 ELECTRA모델을 사용했고 generator와 discriminator가 모두 들어가 있습니다.
+* GPT3의 경우 정확한 아키텍쳐를 공개하진 않았지만 GPT2와 거의 유사하며 few-shot 학습을 위해 input길이를 늘리고 계산 효율화를 위한 몇가지 처리를 한 것으로 보입니다. 따라서 GPT2를 기반으로 이를 반영하여 학습하였습니다.
+
 
 ## Fine-tuning
 * Fine-tuning 코드와 KoBert, HanBERT, KoELECTRA-Base-v3 결과는 [KoELECTRA](https://github.com/monologg/KoELECTRA) 를 참고하였습니다. 이 외에는 직접 fine-tuning을 수행하였으며 batch size=32, learning rate=3e-5, epoch=5~15를 사용하였습니다.
