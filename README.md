@@ -31,8 +31,9 @@
 ## Notebooks
 |    |  설명  | Colab  |
 | ---| ------| ----- |
-| GPT3 generation            |   GPT3 모델을 통해 한글 텍스트를 입력하면 문장의 뒷부분을 생성합니다.      |         [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kiyoungkim1/LMkor/blob/main/notebooks/gpt3_text_generation.ipynb) |
-| Bertshared summarization   |   Bertshared모델을 통해 문서를 요약합니다.                          |         [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kiyoungkim1/LMkor/blob/main/notebooks/summarization_with_bertshared.ipynb) |
+| GPT3 generation            |   GPT3 모델을 통해 한글 텍스트를 입력하면 문장의 뒷부분을 생성합니다.                |         [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kiyoungkim1/LMkor/blob/main/notebooks/gpt3_text_generation.ipynb) |
+| Bertshared summarization   |   Bertshared모델을 통해 문서를 요약합니다.                                    |         [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kiyoungkim1/LMkor/blob/main/notebooks/summarization_with_bertshared.ipynb) |
+| mask prediction            |   Masked language model별로 문장 속 mask에 들어갈 확률이 높은 단어를 보여줍니다.   |        [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kiyoungkim1/LMkor/blob/main/notebooks/mask_prediction.ipynb) |
 
 * 간단한 테스트 결과와 사용법을 보여드리기 위한 것으로, 자체 데이터로 원하시는 성능을 얻기 위해서는 tuning이 필요합니다.
 
