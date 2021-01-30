@@ -66,6 +66,8 @@ model_funnel = FunnelModel.from_pretrained("kykim/funnel-kor-base")
 # gpt3-kor-small_based_on_gpt2
 from transformers import BertTokenizerFast, GPT2LMHeadModel
 tokenizer_gpt3 = BertTokenizerFast.from_pretrained("kykim/gpt3-kor-small_based_on_gpt2")
+input_ids = tokenizer_gpt3.encode("text to tokenize")[1:]  # remove cls token
+        
 model_gpt3 = GPT2LMHeadModel.from_pretrained("kykim/gpt3-kor-small_based_on_gpt2")
 
 # bertshared-kor-base (only for pytorch in transformers)
