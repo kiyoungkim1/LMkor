@@ -1,4 +1,4 @@
-# Pretrained Language Model For Korean
+# Pretrained Language Models For Korean
 
 * 최고의 성능을 내는 언어 모델들이 세계 각지에서 개발되고 있지만 대부분 영어만을 다루고 있습니다. 한국어 자연어 처리 연구를 시작하시는데 도움이 되고자 한국어로 학습된 최신 언어모델들을 공개합니다. 
 * Transformers 라이브러리를 통해 사용가능하도록 만들었으며 encoder 기반(BERT 등), decoder 기반(GPT3), encoder-decoder(T5, BERTSHARED) 모델을 모두 제공하고 있습니다.
@@ -21,12 +21,12 @@
 | gpt3-kor-small_based_on_gpt2        |              768 |         12 |       2048 |       4096 |          1e-2 |           4.5K | will be update |
 | bertshared-kor-base                 |          768/768 |      12/12 |     512/512 |        16 |          5e-5 |            20K |                |
 
-* 원본 모델과 달리 tokenizer는 모든 모델에 대해 wordpiece로 통일하였습니다.
+* 원본 모델과 달리 **tokenizer는 모든 모델에 대해 wordpiece로 통일**하였습니다. 자세한 사용법은 usage를 참고해주세요.
 * ELECTRA 모델은 discriminator입니다.
 * BERT 모델에는 whole-word-masking이 적용되었습니다.
 * FUNNEL-TRANSFORMER 모델은 ELECTRA모델을 사용했고 generator와 discriminator가 모두 들어가 있습니다.
 * GPT3의 경우 정확한 아키텍쳐를 공개하진 않았지만 GPT2와 거의 유사하며 few-shot 학습을 위해 input길이를 늘리고 계산 효율화를 위한 몇가지 처리를 한 것으로 보입니다. 따라서 GPT2를 기반으로 이를 반영하여 학습하였습니다.
-* Bertshared는 transformer seq2seq모델로 encoder와 decoder를 bert-kor-base로 초기값을 준 다음 training을 한 것입니다. encoder와 decoder가 파라미터를 공유하게 함으로써 하나의 bert 모델 용량으로 seq2seq를 구현할 수 있게 되었습니다 ([reference](https://arxiv.org/abs/1907.12461)). 공개한 모델은 summarization 태스크에 대해 학습한 것입니다.
+* BERTSHARED는 seq2seq모델로 encoder와 decoder를 bert-kor-base로 초기화한 다음 training을 한 것입니다. Encoder와 decoder가 파라미터를 공유하게 함으로써 하나의 bert 모델 용량으로 seq2seq를 구현할 수 있게 되었습니다 ([reference](https://arxiv.org/abs/1907.12461)). 공개한 모델은 summarization 태스크에 대해 학습한 것입니다.
 
 ## Notebooks
 |    |  설명  | Colab  |
@@ -114,13 +114,6 @@ model_bertshared = EncoderDecoderModel.from_pretrained("kykim/bertshared-kor-bas
 | **electra-kor-base**  |       91.29        |         87.20          |     **85.50**      |      **83.11**       |           85.46           |          **95.78**          |                  66.03                 |
 | **funnel-kor-base**   |     **91.36**      |         88.02          |       83.90        |                      |           84.52           |            95.51            |                  68.18                 |
 
-## Comment
-* **데이터셋의 특성을 잘 이해**하여야 합니다. nsmc에는 training set에는 '너무재밓었다그래서보는것을추천한다'가 부정으로 라벨링되어 있습니다. 만약 해당 리뷰가 test set에 있었다면 긍정으로 판별될 확률이 높고 accuracy는 떨어지게 됩니다.  좋은 모델이 점수가 잘 나오는 경향성은 분명히 있지만 accuracy가 100인 모델이 최고의 모델이 아닐수도 있습니다. 또한 **메트릭 스코어는 데이터셋의 일관성(consistency)에 큰 영향**을 받으며습니다. 따라서 앞으로는 데이터셋 자체를 평가할 수 있는 메트릭도 중요해 지리라 생각합니다.
-
-* 비슷한 말이지만 데이터셋에는 '**가치판단**'이 들어가 있습니다. '배우 얼굴만 보여요'가 누군가에게는 긍정일수도 있고 부정일 수도 있습니다. **너무 쉬운 데이터셋은 인공지능 활용가치가 떨어지며, 너무 어려운 데이터셋은 애매모호함이 많습니다**. 따라서 데이터셋을 공개하거나 사용할 때는 이를 분명히 숙지해야 합니다.
-
-* [Scaling Laws for Neural Language Models](https://arxiv.org/abs/2001.08361)에 따르면 **cross-entropy loss 퍼포먼스는 모델의 크기, 데이터의 양, 컴퓨팅 시간의 로그함수이며 모델 아키텍쳐의 영향는 적다는 것**입니다. 모델 크기가 가장 중요하며, 그 다음 배치 사이즈, 컴퓨팅 시간이라고 합니다. 
-
 ## Citation
 
 ```
@@ -144,7 +137,6 @@ model_bertshared = EncoderDecoderModel.from_pretrained("kykim/bertshared-kor-bas
 * [Huggingface Tokenizers](https://github.com/huggingface/tokenizers)
 * [모두의 말뭉치](https://corpus.korean.go.kr/)
 * [KoELECTRA](https://github.com/monologg/KoELECTRA)
-* [Scaling Laws for Neural Language Models](https://arxiv.org/abs/2001.08361)
 
 ## Acknowledgments
 
