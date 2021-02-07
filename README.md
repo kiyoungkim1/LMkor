@@ -12,14 +12,14 @@
 
 ## Pretraining models
 
-|                                     | Hidden size      | layers     |max length  | batch size | learning rate | training steps |                |
-| --------------------------------    |----------------: | ---------: | ---------: | ---------: | ------------: | -------------: |--------------: |
-| albert-kor-base                     |              768 |         12 |        256 |       1024 |          5e-4 |           0.9M |                |
-| bert-kor-base                       |              768 |         12 |        512 |        256 |          1e-4 |           1.9M |                |
-| funnel-kor-base                     |              768 |      6_6_6 |        512 |        128 |          8e-5 |           0.9M |                |
-| electra-kor-base                    |              768 |         12 |        512 |        256 |          2e-4 |           1.9M |                |
-| gpt3-kor-small_based_on_gpt2        |              768 |         12 |       2048 |       4096 |          1e-2 |           4.5K | will be update |
-| bertshared-kor-base                 |          768/768 |      12/12 |     512/512 |        16 |          5e-5 |            20K |                |
+|                                     | Hidden size      | layers     |max length  | batch size | learning rate | training steps |
+| --------------------------------    |----------------: | ---------: | ---------: | ---------: | ------------: | -------------: |
+| albert-kor-base                     |              768 |         12 |        256 |       1024 |          5e-4 |           0.9M |
+| bert-kor-base                       |              768 |         12 |        512 |        256 |          1e-4 |           1.9M |
+| funnel-kor-base                     |              768 |      6_6_6 |        512 |        128 |          8e-5 |           0.9M |
+| electra-kor-base                    |              768 |         12 |        512 |        256 |          2e-4 |           1.9M |
+| gpt3-kor-small_based_on_gpt2        |              768 |         12 |       2048 |       4096 |          1e-2 |            10K |
+| bertshared-kor-base                 |          768/768 |      12/12 |     512/512 |        16 |          5e-5 |            20K |
 
 * 원본 모델과 달리 **tokenizer는 모든 모델에 대해 wordpiece로 통일**하였습니다. 자세한 사용법은 usage를 참고해주세요.
 * ELECTRA 모델은 discriminator입니다.
