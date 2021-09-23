@@ -4,6 +4,7 @@
 * Transformers 라이브러리를 통해 사용가능하도록 만들었으며 encoder 기반(BERT 등), decoder 기반(GPT3), encoder-decoder(T5, BERTSHARED) 모델을 모두 제공하고 있습니다.
 * 뉴스와 같이 잘 정제된 언어 뿐만 아니라, 실제 인터넷 상에서 쓰이는 신조어, 줄임말, 오자, 탈자를 잘 이해할 수 있는 모델을 개발하기 위해, 대분류 주제별 텍스트를 별도로 수집하였으며 대부분의 데이터는 블로그, 댓글, 리뷰입니다.
 * 더 높은 정확도의 모델이나 도메인 특화 언어모델 및  모델의 상업적 사용에 대해서는 kky416@gmail.com로 문의 부탁드립니다.
+* 자연어처리를 처음 접하시는 분들을 위해 [Youtube에 자연어처리 기초 강의](https://www.youtube.com/watch?v=Z201jwWo-xs&list=PLrLEKGJAgXxL-R9IqDH7HANWXRsS900tF&ab_channel=Ready-To-UseTech)를 올려두었습니다(약 6시간 분량)
 
 ## Recent update
 * 2021-01-30: [Bertshared](https://arxiv.org/abs/1907.12461) (Bert를 기반으로 한 seq2seq모델) 모델 추가
