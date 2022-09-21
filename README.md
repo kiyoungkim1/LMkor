@@ -1,5 +1,9 @@
 # Pretrained Language Models For Korean
 
+<p>
+<a href="https://console.tiyaro.ai/explore/kykim-bert-kor-base"> <img src="https://tiyaro-public-docs.s3.us-west-2.amazonaws.com/assets/try_on_tiyaro_badge.svg"></a>
+</p>
+
 * 최고의 성능을 내는 언어 모델들이 세계 각지에서 개발되고 있지만 대부분 영어만을 다루고 있습니다. 한국어 자연어 처리 연구를 시작하시는데 도움이 되고자 한국어로 학습된 최신 언어모델들을 공개합니다. 
 * Transformers 라이브러리를 통해 사용가능하도록 만들었으며 encoder 기반(BERT 등), decoder 기반(GPT3), encoder-decoder(T5, BERTSHARED) 모델을 모두 제공하고 있습니다.
 * 뉴스와 같이 잘 정제된 언어 뿐만 아니라, 실제 인터넷 상에서 쓰이는 신조어, 줄임말, 오자, 탈자를 잘 이해할 수 있는 모델을 개발하기 위해, 대분류 주제별 텍스트를 별도로 수집하였으며 대부분의 데이터는 블로그, 댓글, 리뷰입니다.
